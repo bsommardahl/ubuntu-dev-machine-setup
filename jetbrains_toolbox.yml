@@ -1,8 +1,7 @@
-
 ---
 
 - hosts: vm 
   roles:
-    - security
+    - jetbrains_toolbox
 
 ...

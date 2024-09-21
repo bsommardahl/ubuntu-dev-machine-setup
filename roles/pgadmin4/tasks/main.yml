@@ -1,0 +1,7 @@
+---
+- name: install .NET 8 SDK
+  ansible.builtin.apt:
+    name: dotnet-sdk-8.0
+    force_apt_get: true
+
+...

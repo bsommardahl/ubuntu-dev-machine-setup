@@ -1,0 +1,19 @@
+---
+
+- name: install libfuse
+  ansible.builtin.apt:
+    name: libfuse2
+    force_apt_get: true
+
+- name: Download/unarchive Jetbrains Toolbox
+  unarchive:
+    src: https://download.jetbrains.com/toolbox/jetbrains-toolbox-2.4.2.32922.tar.gz
+    dest: /~
+    remote_src: yes
+    force: no
+    creates: /~/jetbrains-toolbox-2.4.2.32922
+
+- name: Install JetBrains Toolbox
+  command: "/~/jetbrains-toolbox-2.4.2.32922/jetbrains-toolbox --install"
+
+...
