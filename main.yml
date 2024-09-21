@@ -12,5 +12,6 @@
 - import_playbook: security.yml
 - import_playbook: hashicorp.yml
 - import_playbook: googlechrome.yml
+- import_playbook: tailscale.yml
 - import_playbook: post_install.yml
 ...
