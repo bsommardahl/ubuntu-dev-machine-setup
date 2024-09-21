@@ -1,7 +1,18 @@
 ---
-- name: install .NET 8 SDK
+- name: add pgadmin4 apt key
+  ansible.builtin.apt_key:
+    url: "{{ pgadmin4_apt_key_url }}"
+    keyring: "{{ pgadmin4_apt_key_keyring }}"
+
+- name: add pgadmin4 repo
+  ansible.builtin.apt_repository:
+    repo: "{{ pgadmin4_repo }}"
+    state: present
+    filename: vscode
+
+- name: install pgadmin4
   ansible.builtin.apt:
-    name: dotnet-sdk-8.0
+    name: pgadmin4-desktop
     force_apt_get: true
 
 ...
