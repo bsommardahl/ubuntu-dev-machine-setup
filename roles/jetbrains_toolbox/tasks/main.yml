@@ -6,11 +6,11 @@
     force_apt_get: true
 
 - name: create jetbrains toolbox directory
-    ansible.builtin.file:
-      path: "~{{ local_username }}/jetbrains-toolbox"
-      state: directory
-      become: true
-      become_user: "{{ local_username }}"
+  ansible.builtin.file:
+    path: "~{{ local_username }}/jetbrains-toolbox"
+    state: directory
+  become: true
+  become_user: "{{ local_username }}"
 
 - name: Download/unarchive Jetbrains Toolbox
   unarchive:
