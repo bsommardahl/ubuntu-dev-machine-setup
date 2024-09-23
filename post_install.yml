@@ -1,6 +1,7 @@
 ---
 
-- hosts: vm tasks:
+- hosts: vm 
+  tasks:
     - name: remove redundant packages
       ansible.builtin.apt:
           autoremove: true
