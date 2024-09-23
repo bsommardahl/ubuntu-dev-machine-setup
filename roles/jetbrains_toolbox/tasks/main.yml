@@ -17,7 +17,6 @@
     src: https://download.jetbrains.com/toolbox/jetbrains-toolbox-2.4.2.32922.tar.gz
     dest: ~{{ local_username }}/jetbrains-toolbox
     remote_src: yes
-    force: no
     #creates: ~/jetbrains-toolbox-2.4.2.32922
 
 - name: Install JetBrains Toolbox
