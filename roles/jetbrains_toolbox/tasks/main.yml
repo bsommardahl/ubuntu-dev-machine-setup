@@ -5,15 +5,22 @@
     name: libfuse2
     force_apt_get: true
 
+- name: create jetbrains toolbox directory
+    ansible.builtin.file:
+      path: "~{{ local_username }}/jetbrains-toolbox"
+      state: directory
+      become: true
+      become_user: "{{ local_username }}"
+
 - name: Download/unarchive Jetbrains Toolbox
   unarchive:
     src: https://download.jetbrains.com/toolbox/jetbrains-toolbox-2.4.2.32922.tar.gz
-    dest: /~
+    dest: ~{{ local_username }}/jetbrains-toolbox
     remote_src: yes
     force: no
-    creates: /~/jetbrains-toolbox-2.4.2.32922
+    #creates: ~/jetbrains-toolbox-2.4.2.32922
 
 - name: Install JetBrains Toolbox
-  command: "/~/jetbrains-toolbox-2.4.2.32922/jetbrains-toolbox --install"
+  command: "~{{ local_username }}/jetbrains-toolbox/jetbrains-toolbox --install"
 
 ...
