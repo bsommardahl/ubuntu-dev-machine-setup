@@ -8,7 +8,7 @@
   ansible.builtin.apt_repository:
     repo: "{{ pgadmin4_repo }}"
     state: present
-    filename: vscode
+    filename: pgadmin4
 
 - name: install pgadmin4
   ansible.builtin.apt:
