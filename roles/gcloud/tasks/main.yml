@@ -1,0 +1,8 @@
+---
+
+- name: install Google Cloud CLI
+  community.general.snap:
+    name: google-cloud-cli
+    classic: yes
+  
+...
