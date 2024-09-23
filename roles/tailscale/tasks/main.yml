@@ -2,15 +2,12 @@
 - name: Install tailscale
   script: https://tailscale.com/install.sh
 
-- name: auth_key
-  prompt: Tailscale Auth Key?
-  
 - name: Authorize machine
       ansible.builtin.command:
         argv:
           - 'tailscale'
           - 'up'
           - '--authkey'
-          - "{{ auth_key }}"
+          - "{{ lookup('env', 'TAILSCALE_AUTH_KEY') }}"
 
 ...
