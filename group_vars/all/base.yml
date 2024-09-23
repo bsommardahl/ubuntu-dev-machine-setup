@@ -151,8 +151,6 @@ base_developer_tools_pipx:
   - mitmproxy
 
 base_virtualization_tools:
-  - virtualbox
-  - virtualbox-ext-pack
   - docker.io
   - docker-compose
 

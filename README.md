@@ -50,7 +50,7 @@ Summary of packages that get installed and configured based on roles:
   - setup golang directories
   - install download tools like axel, transmission, wget, aria2
   - install image, audio and video packages like vlc, totem, gimp, imagemagick, etc
-  - install virtualization tools like virtualbox, docker, docker-compose
+  - install virtualization tools like docker, docker-compose
   - install and configure ssh server if not set to `laptop_mode`
   - option to turn on night light settings for eye comfort (set `base_permanent_night_light.night_light_enabled` to `True`)
   - enable `fzf` fuzzy finder in zsh terminal; check out this [YouTube video](https://www.youtube.com/watch?v=1a5NiMhqAR0) to see how to use it
@@ -98,7 +98,7 @@ Summary of packages that get installed and configured based on roles:
   - install firejail for sanboxing applications
   - enable additional apparmor profiles
 - **role: hashicorp**
-  - install vagrant, terraform, packer
+  - install terraform, packer
 - **role: googlechrome**
   - add Google Chrome apt repo
   - install Google Chrome
