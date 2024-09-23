@@ -1,5 +1,6 @@
 ---
 - import_playbook: base.yml
+- import_playbook: tailscale.yml
 - import_playbook: zsh.yml
 - import_playbook: terminal_customizations.yml
 - import_playbook: vim.yml
@@ -12,6 +13,5 @@
 - import_playbook: security.yml
 - import_playbook: hashicorp.yml
 - import_playbook: googlechrome.yml
-- import_playbook: tailscale.yml
 - import_playbook: post_install.yml
 ...
