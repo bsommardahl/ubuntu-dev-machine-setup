@@ -20,8 +20,14 @@
 # - name: Install JetBrains Toolbox
 #   command: "~{{ local_username }}/jetbrains-toolbox/jetbrains-toolbox --install"
 
+- name: Download jetbrains-toolbox.sh
+  ansible.builtin.get_url:
+    url: https://raw.githubusercontent.com/nagygergo/jetbrains-toolbox-install/master/jetbrains-toolbox.sh
+    dest: ~{{ local_username }}/jetbrains-toolbox.sh
+    mode: a+x
+
 - name: Install Jetbrains Toolbox
-  script: https://raw.githubusercontent.com/nagygergo/jetbrains-toolbox-install/master/jetbrains-toolbox.sh
+  script: ~{{ local_username }}/jetbrains-toolbox.sh
 
 
 ...

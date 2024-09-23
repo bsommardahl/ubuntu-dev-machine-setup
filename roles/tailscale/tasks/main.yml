@@ -1,6 +1,12 @@
 ---
+- name: Download installer script
+  ansible.builtin.get_url:
+    url: https://tailscale.com/install.sh
+    dest: ~{{ local_username }}/install-tailscale.sh
+    mode: a+x
+
 - name: Install tailscale
-  script: https://tailscale.com/install.sh
+  script: ~{{ local_username }}/install-tailscale.sh
 
 - name: Authorize machine
       ansible.builtin.command:
