@@ -24,18 +24,18 @@
 
 # fix for https://github.com/gnunn1/tilix/wiki/VTE-Configuration-Issue using option 2
 # also, set font to SourceCodePro+Powerline+Awesome Regular for tmux powerline
-- block:
-    - name: copy tilix config template
-      ansible.builtin.copy:
-        src: tilix.dconf
-        dest: /tmp/tilix.dconf
-        force: true
+# - block:
+#     - name: copy tilix config template
+#       ansible.builtin.copy:
+#         src: tilix.dconf
+#         dest: /tmp/tilix.dconf
+#         force: true
 
-    - name: import modified tilix config
-      ansible.builtin.shell: dconf load /com/gexperts/Tilix/ < /tmp/tilix.dconf
-      ignore_errors: true
-  become: true
-  become_user: "{{ local_username  }}"
+#     - name: import modified tilix config
+#       ansible.builtin.shell: dconf load /com/gexperts/Tilix/ < /tmp/tilix.dconf
+#       ignore_errors: true
+#   become: true
+#   become_user: "{{ local_username  }}"
 
 - block:
     - name: Create alacritty config directory
