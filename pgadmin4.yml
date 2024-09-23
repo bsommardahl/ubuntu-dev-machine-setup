@@ -2,6 +2,6 @@
 
 - hosts: vm 
   roles:
-    - pgadmin4
+    - deekayen.pgadmin4
 
 ...
