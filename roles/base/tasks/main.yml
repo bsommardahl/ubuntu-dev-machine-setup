@@ -125,26 +125,26 @@
   become: true
   become_user: "{{ local_username }}"
 
-- block:
-    - name: Create directories for golang
-      ansible.builtin.file:
-        path: "~{{ local_username }}/{{ item }}"
-        state: directory
-      with_items:
-        - go
-        - go/src
-        - go/bin
+# - block:
+#     - name: Create directories for golang
+#       ansible.builtin.file:
+#         path: "~{{ local_username }}/{{ item }}"
+#         state: directory
+#       with_items:
+#         - go
+#         - go/src
+#         - go/bin
 
-    - name: Make GOPATH available in .bashrc
-      ansible.builtin.lineinfile:
-        path: "~{{ local_username }}/.bashrc"
-        line: "{{ item }}"
-        create: true
-      with_items:
-        - export GOPATH=$HOME/go
-        - export PATH=$PATH:$GOPATH/bin
-  become: true
-  become_user: "{{ local_username }}"
+#     - name: Make GOPATH available in .bashrc
+#       ansible.builtin.lineinfile:
+#         path: "~{{ local_username }}/.bashrc"
+#         line: "{{ item }}"
+#         create: true
+#       with_items:
+#         - export GOPATH=$HOME/go
+#         - export PATH=$PATH:$GOPATH/bin
+#   become: true
+#   become_user: "{{ local_username }}"
 
 - name: install download tools
   ansible.builtin.apt:
@@ -221,20 +221,20 @@
   become: true
   become_user: "{{ local_username }}"
 
-- name: build and install golang binaries
-  ansible.builtin.command: "go install {{ item }}"
-  with_items: "{{ golang_tools }}"
-  become: true
-  become_user: "{{ local_username }}"
+# - name: build and install golang binaries
+#   ansible.builtin.command: "go install {{ item }}"
+#   with_items: "{{ golang_tools }}"
+#   become: true
+#   become_user: "{{ local_username }}"
 
-- name: build and install rust binaries using cargo
-  community.general.cargo:
-    name: "{{ item }}"
-    locked: true
-    state: latest
-  with_items: "{{ rust_cargo_tools }}"
-  become: true
-  become_user: "{{ local_username }}"
+# - name: build and install rust binaries using cargo
+#   community.general.cargo:
+#     name: "{{ item }}"
+#     locked: true
+#     state: latest
+#   with_items: "{{ rust_cargo_tools }}"
+#   become: true
+#   become_user: "{{ local_username }}"
 
 # obsidian markdown editor
 - block:
