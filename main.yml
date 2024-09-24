@@ -1,6 +1,7 @@
 ---
 - import_playbook: base.yml
 - import_playbook: tailscale.yml
+- import_playbook: xrdp.yml
 - import_playbook: zsh.yml
 - import_playbook: gcloud.yml
 - import_playbook: terminal_customizations.yml

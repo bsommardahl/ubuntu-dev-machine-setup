@@ -1,0 +1,27 @@
+---
+
+- name: Install XRDP
+  ansible.builtin.apt:
+    name: xrdp
+    force_apt_get: true
+
+- name: Allow users to log in
+  command: usermod -a -G ssl-cert xrdp
+  become: true
+  become_user: "{{ local_username }}"
+
+- name: Restart xrdp
+  command: systemctl restart xrdp
+  become: true
+  become_user: "{{ local_username }}"
+
+- name: Open port on firewall
+  command: ufw allow from 0.0.0.0/0 to any port 3389
+  become: true
+  become_user: "{{ local_username }}"
+
+- name: Restart UFW
+  command: ufw reload
+  become: true
+  become_user: "{{ local_username }}"
+...
