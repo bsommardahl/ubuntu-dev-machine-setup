@@ -12,6 +12,12 @@
       name: xrdp
       enabled: true
 
+  - name: Allow access to tcp port 3389
+    community.general.ufw:
+      rule: allow
+      port: '3389'
+      proto: tcp
+      
   become: true
   become_user: "{{ local_username }}"
   
