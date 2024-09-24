@@ -1,15 +1,15 @@
 ---
 
-- name: Install XRDP
-  ansible.builtin.apt:
-    name: xrdp
-    force_apt_get: true
+# - name: Install XRDP
+#   ansible.builtin.apt:
+#     name: xrdp
+#     force_apt_get: true
 
-- name: Enable XRDP
-  command: systemctl enable xrdp
-  become: true
-  become_user: "{{ local_username }}"
-  
+# - name: Enable XRDP
+#   command: systemctl enable xrdp
+#   become: true
+#   become_user: "{{ local_username }}"
+
 # - name: Allow users to log in
 #   command: usermod -a -G ssl-cert xrdp
 #   become: true
@@ -20,13 +20,24 @@
 #   become: true
 #   become_user: "{{ local_username }}"
 
-- name: Open port on firewall
-  command: ufw allow from 0.0.0.0/0 to any port 3389
-  become: true
-  become_user: "{{ local_username }}"
+# - name: Open port on firewall
+#   command: ufw allow from 0.0.0.0/0 to any port 3389
+#   become: true
+#   become_user: "{{ local_username }}"
 
-- name: Restart UFW
-  command: ufw reload
-  become: true
-  become_user: "{{ local_username }}"
+# - name: Restart UFW
+#   command: ufw reload
+#   become: true
+#   become_user: "{{ local_username }}"
+
+- name: xrdp is configured
+    import_role:
+      name: crivetimihai.xrdp
+    vars:
+      xrdp_enable_service: true
+      xrdp_firewall_configure: true
+      xrdp_firewall_rules:
+        - port: 3389
+    tags: xrdp
+    
 ...
