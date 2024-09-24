@@ -1,12 +1,12 @@
 ---
+
+- name: Download installer script
+  get_url:
+    url: https://tailscale.com/install.sh
+    dest: ~{{ local_username }}/install-tailscale.sh
+    mode: a+x
+
 - block:
-
-  - name: Download installer script
-    get_url:
-      url: https://tailscale.com/install.sh
-      dest: ~{{ local_username }}/install-tailscale.sh
-      mode: a+x
-
   - name: Install tailscale
     script: ~{{ local_username }}/install-tailscale.sh
 
