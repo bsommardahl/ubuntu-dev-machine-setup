@@ -13,15 +13,12 @@
       enabled: true
 
   - name: Allow access to tcp port 3389
-    become: true
-    become_user: "{{ local_username }}"
     community.general.ufw:
       rule: allow
       port: '3389'
       proto: tcp
       
   become: true
-  become_user: "{{ local_username }}"
   
 # - name: Allow users to log in
 #   command: usermod -a -G ssl-cert xrdp
