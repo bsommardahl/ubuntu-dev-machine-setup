@@ -1,7 +1,8 @@
 ---
-
+# ansible-galaxy role install robertdebock.xrdp
 - hosts: vm 
   roles:
-    - xrdp
+    - role: robertdebock.xrdp
+
 
 ...
