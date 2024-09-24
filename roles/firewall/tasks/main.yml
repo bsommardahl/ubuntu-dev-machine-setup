@@ -1,0 +1,7 @@
+---
+
+- name: enable ufw firewall
+  community.general.ufw:
+    state: enabled
+
+...

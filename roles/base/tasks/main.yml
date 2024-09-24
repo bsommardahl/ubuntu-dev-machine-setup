@@ -32,11 +32,6 @@
         state: started
         daemon_reload: true
 
-- name: enable ufw firewall
-  community.general.ufw:
-    state: enabled
-
-
 - block:
     - name: Check if /etc/default/apport exists
       ansible.builtin.stat:

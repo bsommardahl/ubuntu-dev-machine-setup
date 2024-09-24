@@ -11,6 +11,7 @@
 - import_playbook: dotnetsdk8.yml
 - import_playbook: jetbrains_toolbox.yml
 - import_playbook: privacy.yml
+- import_playbook: firewall.yml
 - import_playbook: security.yml
 - import_playbook: hashicorp.yml
 - import_playbook: googlechrome.yml

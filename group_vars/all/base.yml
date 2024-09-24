@@ -16,8 +16,8 @@ base_archiving_tools:
   - zip
 
 base_productivity_tools:
-  - libreoffice
-  - foliate
+  #- libreoffice
+  #- foliate
   - qalc
 
 base_system_tools:
@@ -29,7 +29,7 @@ base_system_tools:
   - progress
   - pwgen
 #  - syncthing
-  - qemu-utils
+  #- qemu-utils
   - trash-cli  # command line tools to interact with files/directories in rubbish bin
 
 base_system_tools_laptop:
