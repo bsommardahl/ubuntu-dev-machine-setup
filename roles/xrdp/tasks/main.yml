@@ -1,15 +1,20 @@
 ---
 
-# - name: Install XRDP
-#   ansible.builtin.apt:
-#     name: xrdp
-#     force_apt_get: true
+- block:
+  - name: Install XRDP
+    ansible.builtin.apt:
+      name: xrdp
+      force_apt_get: true
 
-# - name: Enable XRDP
-#   command: systemctl enable xrdp
-#   become: true
-#   become_user: "{{ local_username }}"
+  - name: Enable XRDP
+    ansible.builtin.systemd_service:
+      state: started
+      name: xrdp
+      enabled: true
 
+  become: true
+  become_user: "{{ local_username }}"
+  
 # - name: Allow users to log in
 #   command: usermod -a -G ssl-cert xrdp
 #   become: true
