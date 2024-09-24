@@ -13,7 +13,7 @@
     argv:
       - 'tailscale'
       - 'up'
-      - '--authkey'
+      - '--auth-key'
       - "{{ lookup('env', 'TAILSCALE_AUTH_KEY') }}"
 
 ...
