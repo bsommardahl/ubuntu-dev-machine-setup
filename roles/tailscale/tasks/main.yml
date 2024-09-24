@@ -1,19 +1,24 @@
 ---
-- name: Download installer script
-  get_url:
-    url: https://tailscale.com/install.sh
-    dest: ~{{ local_username }}/install-tailscale.sh
-    mode: a+x
+- block:
 
-- name: Install tailscale
-  script: ~{{ local_username }}/install-tailscale.sh
+  - name: Download installer script
+    get_url:
+      url: https://tailscale.com/install.sh
+      dest: ~{{ local_username }}/install-tailscale.sh
+      mode: a+x
 
-- name: Authorize machine
-  command:
-    argv:
-      - 'tailscale'
-      - 'up'
-      - '--auth-key'
-      - "{{ lookup('env', 'TAILSCALE_AUTH_KEY') }}"
+  - name: Install tailscale
+    script: ~{{ local_username }}/install-tailscale.sh
+
+  - name: Authorize machine
+    command:
+      argv:
+        - 'tailscale'
+        - 'up'
+        - '--auth-key'
+        - "{{ lookup('env', 'TAILSCALE_AUTH_KEY') }}"
+
+  become: true
+  become_user: "{{ local_username }}"
 
 ...
