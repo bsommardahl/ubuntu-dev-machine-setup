@@ -30,14 +30,6 @@
 #   become: true
 #   become_user: "{{ local_username }}"
 
-- name: xrdp is configured
-  import_role:
-    name: crivetimihai.xrdp
-  vars:
-    xrdp_enable_service: true
-    xrdp_firewall_configure: true
-    xrdp_firewall_rules:
-      - port: 3389
-  tags: xrdp
+
 
 ...

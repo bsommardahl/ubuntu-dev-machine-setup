@@ -1,6 +1,8 @@
 ---
 # ansible-galaxy role install robertdebock.xrdp
 - hosts: vm 
+  become: true
+  become_user: "{{ local_username }}"
   roles:
     - role: robertdebock.xrdp
 
