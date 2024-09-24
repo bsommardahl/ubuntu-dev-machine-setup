@@ -4,6 +4,9 @@
   become: true
   become_user: "{{ local_username }}"
   roles:
+    - role: robertdebock.bootstrap
+    - role: robertdebock.core_dependencies
+    - role: robertdebock.epel
     - role: robertdebock.xrdp
 
 
