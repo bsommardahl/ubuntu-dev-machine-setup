@@ -6,15 +6,18 @@
     dest: ~{{ local_username }}/install-tailscale.sh
     mode: a+x
 
-- name: Install tailscale
-  script: ~{{ local_username }}/install-tailscale.sh
+- block:
+  become: true
 
-- name: Authorize machine
-  command:
-    argv:
-      - 'tailscale'
-      - 'up'
-      - '--auth-key'
-      - "{{ lookup('env', 'TAILSCALE_AUTH_KEY') }}"
+  - name: Install tailscale
+    script: ~{{ local_username }}/install-tailscale.sh
+
+  - name: Authorize machine
+    command:
+      argv:
+        - 'tailscale'
+        - 'up'
+        - '--auth-key'
+        - "{{ lookup('env', 'TAILSCALE_AUTH_KEY') }}"
 
 ...
