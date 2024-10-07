@@ -7,7 +7,7 @@
 #- import_playbook: terminal_customizations.yml
 #- import_playbook: vim.yml
 #- import_playbook: neovim.yml
-- import_playbook: vscode.yml
+#- import_playbook: vscode.yml
 - import_playbook: dotnetsdk8.yml
 - import_playbook: jetbrains_toolbox.yml
 #- import_playbook: privacy.yml
