@@ -6,8 +6,7 @@
         path: "~{{ local_username }}/.local/share/fonts"
         state: directory
   become: true
-  become_user: "{{ local_username }}"
-
+  
 - block:
     - name: download nerd fonts to local fonts folder
       ansible.builtin.get_url:
@@ -15,13 +14,11 @@
         dest: "~{{ local_username }}/.local/share/fonts/"
       with_items: "{{ terminal_customizations_nerd_fonts }}"
   become: true
-  become_user: "{{ local_username }}"
-
+  
 - name: refresh fonts cache
   ansible.builtin.shell: "fc-cache -fv"
   become: true
-  become_user: "{{ local_username }}"
-
+  
 # fix for https://github.com/gnunn1/tilix/wiki/VTE-Configuration-Issue using option 2
 # also, set font to SourceCodePro+Powerline+Awesome Regular for tmux powerline
 # - block:
@@ -35,7 +32,6 @@
 #       ansible.builtin.shell: dconf load /com/gexperts/Tilix/ < /tmp/tilix.dconf
 #       ignore_errors: true
 #   become: true
-#   become_user: "{{ local_username  }}"
 
 - block:
     - name: Create alacritty config directory
@@ -58,8 +54,7 @@
         dest: "~{{ local_username }}/.config/alacritty/alacritty.toml"
         mode: '0644'
   become: true
-  become_user: "{{ local_username }}"
-
+  
 # setup tmux configs and plugins
 - block:
     - name: git clone tmux plugin repo
@@ -88,9 +83,7 @@
 
     - name: install all required tmux plugins
       ansible.builtin.shell: "~{{local_username}}/.tmux/plugins/tpm/scripts/install_plugins.sh"
-      become: true
-      become_user: "{{ local_username }}"
+      become: true      
   become: true
-  become_user: "{{ local_username }}"
-
+  
 ...

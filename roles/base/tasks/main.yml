@@ -102,7 +102,6 @@
     name: "{{ item }}"
   with_items: "{{ base_developer_tools_pipx  }}"
   become: true
-  become_user: "{{ local_username  }}"
 
 # Fix for bat syntax highlighting tool; Ubuntu packages it as batcat instead of just bat
 - name: create symlink for bat
@@ -118,8 +117,7 @@
     state: directory
     mode: '0700'
   become: true
-  become_user: "{{ local_username }}"
-
+  
 # - block:
 #     - name: Create directories for golang
 #       ansible.builtin.file:
@@ -139,7 +137,6 @@
 #         - export GOPATH=$HOME/go
 #         - export PATH=$PATH:$GOPATH/bin
 #   become: true
-#   become_user: "{{ local_username }}"
 
 - name: install download tools
   ansible.builtin.apt:
@@ -181,8 +178,7 @@
 
   when: base_permanent_night_light.night_light_enabled
   become: true
-  become_user: "{{ local_username }}"
-
+  
 # make fstrim run daily rather than the default weekly schedule for SSD longevity
 - block:
     - name: enable fstrim.timer
@@ -214,13 +210,11 @@
 - name: make poetry create virtualenv dirs inside the project dir itself
   ansible.builtin.command: "poetry config virtualenvs.in-project true"
   become: true
-  become_user: "{{ local_username }}"
-
+  
 # - name: build and install golang binaries
 #   ansible.builtin.command: "go install {{ item }}"
 #   with_items: "{{ golang_tools }}"
 #   become: true
-#   become_user: "{{ local_username }}"
 
 # - name: build and install rust binaries using cargo
 #   community.general.cargo:
@@ -229,7 +223,6 @@
 #     state: latest
 #   with_items: "{{ rust_cargo_tools }}"
 #   become: true
-#   become_user: "{{ local_username }}"
 
 # obsidian markdown editor
 - block:

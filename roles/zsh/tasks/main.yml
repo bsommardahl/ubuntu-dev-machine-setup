@@ -37,6 +37,5 @@
         - .shell_aliases
         - .shell_functions
   become: true
-  become_user: "{{ local_username }}"
-
+  
 ...

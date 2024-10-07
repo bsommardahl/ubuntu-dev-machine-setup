@@ -27,8 +27,7 @@
         dest: "~{{ local_username }}/.vim_runtime/my_plugins/indentLine"
 
   become: true
-  become_user: "{{ local_username }}"
-
+  
 - block:
     - name: create vim undo directory
       ansible.builtin.file:
@@ -45,6 +44,5 @@
         backup: true
 
   become: true
-  become_user: "{{ local_username }}"
-
+  
 ...
