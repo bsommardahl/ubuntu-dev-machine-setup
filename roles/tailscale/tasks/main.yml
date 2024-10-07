@@ -7,7 +7,6 @@
     mode: a+x
 
 - block:
-  become: true
 
   - name: Install tailscale
     script: ~{{ local_username }}/install-tailscale.sh
@@ -20,4 +19,5 @@
         - '--auth-key'
         - "{{ lookup('env', 'TAILSCALE_AUTH_KEY') }}"
 
+  become: true
 ...
