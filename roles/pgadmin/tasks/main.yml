@@ -1,17 +1,20 @@
 ---
 
 - name: add pgadmin4 apt key
+  become: true
   ansible.builtin.apt_key:
     url: "{{ pgadmin4_apt_key_url }}"
     keyring: "{{ pgadmin4_apt_key_keyring }}"
 
 - name: add pgadmin4 repo
+  become: true
   ansible.builtin.apt_repository:
     repo: "{{ pgadmin4_repo }}"
     state: present
     filename: pgadmin4
 
 - name: install latest pgadmin4
+  become: true
   ansible.builtin.apt:
     name: pgadmin4-desktop
     force_apt_get: true
